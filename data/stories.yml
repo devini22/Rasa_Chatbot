@@ -1,0 +1,45 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: Query Patients_List
+  steps:
+  - intent: ask_Patients_list
+  - action: action_query_neo4j_Patients
+
+- story: Query Healthcare_Providers_List
+  steps:
+  - intent: ask_Healthcare_Providers_list
+  - action: action_query_neo4j_Healthcare_Providers
+
+- story: Query Medical_Services_List
+  steps:
+  - intent: ask_Medical_Services_list
+  - action: action_query_neo4j_Medical_Services
